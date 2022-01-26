@@ -12,5 +12,4 @@ class AccountValidation
     {
         return $account->balance > 0;
     }
-
 }

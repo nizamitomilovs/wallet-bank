@@ -16,6 +16,4 @@ class TransactionWasMade
     {
         $this->transaction = $transaction;
     }
-
-
 }

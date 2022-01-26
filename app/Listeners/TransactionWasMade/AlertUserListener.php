@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class AlertUserListener
 {
-
-
     public function handle(TransactionWasMade $event)
     {
         $transaction = $event->transaction;
@@ -21,7 +19,6 @@ class AlertUserListener
         $client = new \Nexmo\Client($basic);
 
         $userName = DB::table('users')->where('id', $transaction->from_user)->value('name');
-
         $text = 'Transaction from ' . $userName . PHP_EOL .' account ' . $transaction->from_account . PHP_EOL;
 
         $client->message()->send([

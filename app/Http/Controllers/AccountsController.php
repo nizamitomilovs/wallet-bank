@@ -16,10 +16,8 @@ use Illuminate\Support\Str;
 
 class AccountsController extends Controller
 {
-
     public function index()
     {
-
         $accounts = Account::where('user_id', Auth::id())->get();
 
         $transactions = DB::table('transactions')
@@ -38,13 +36,11 @@ class AccountsController extends Controller
 
     public function create()
     {
-
         return view('accounts.create');
     }
 
     public function store()
     {
-
         $iban = $this->generateUniqueCode();
 
         $validatedRequest = $this->validateAccount();
@@ -61,7 +57,6 @@ class AccountsController extends Controller
 
     public function show(Account $account)
     {
-
         $transactions = DB::table('transactions')
             ->where('to_account', $account->number)
             ->orWhere('from_account', $account->number)
@@ -100,7 +95,6 @@ class AccountsController extends Controller
 
     public function destroy(Account $account)
     {
-
         if ((new AccountValidation())->checkAccountBalance($account))
         {
             return redirect()->route('accounts.index')

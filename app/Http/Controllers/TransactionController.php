@@ -31,7 +31,6 @@ class TransactionController extends Controller
         return view('accounts.transfer', [
             'account' => $account,
         ]);
-
     }
 
     public function transfer(Account $account, Request $request)
@@ -68,7 +67,6 @@ class TransactionController extends Controller
 
     private function convertCurrency($amount, $from, $to): float
     {
-
         if ((new RateValidation())->compareTime()) {
             $this->currenciesRepository->getRates();
         }
@@ -80,7 +78,6 @@ class TransactionController extends Controller
         $rate = $to / $from;
 
         return round($amount * $rate, 6);
-
     }
 
     private function getRateFromDatabase(string $currency): float

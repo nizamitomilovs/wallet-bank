@@ -11,8 +11,6 @@ class TransactionValidation
 {
     public function validateTransaction(Account $account, array $validatedData): bool
     {
-
-
         if ($this->validateIban($validatedData['iban'])
             && $this->validateDepositedAmount($account, $validatedData['amount'])
                 && $this->validateTransactionToSameIban($account, $validatedData['iban'])
@@ -42,7 +40,6 @@ class TransactionValidation
 
     private function validateDepositedAmount(Account $account, float $amount): bool
     {
-
         return $account->balance >= $amount * 100;
     }
 

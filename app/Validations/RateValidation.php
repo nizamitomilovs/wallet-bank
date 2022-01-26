@@ -10,7 +10,6 @@ use Carbon\Carbon;
 
 class RateValidation
 {
-
     public function compareTime(): bool
     {
         $rate = Rate::find(1);

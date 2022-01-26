@@ -13,8 +13,6 @@ class SendEmailListener implements ShouldQueue
 
     public function handle(AccountWasCreated $event)
     {
-
-
         \Mail::to($event->user->email)->send(
             new AccountCreationEmail($event->user)
         );
