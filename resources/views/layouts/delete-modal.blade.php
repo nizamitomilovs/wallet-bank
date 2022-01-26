@@ -7,16 +7,18 @@
             <div class="text-center font-light text-gray-700 mb-8">
                 Do you really want to delete this account? This process cannot be undone.
             </div>
-            <div class="flex justify-center">
-                <button @click={showDeleteModal=false}
-                        class="bg-gray-300 text-gray-900 rounded hover:bg-gray-200 px-6 py-2 focus:outline-none mx-1">Cancel</button>
-                <form action="{{route('accounts.destroy',$account)}}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button
-                        class="bg-red-500 text-gray-200 rounded hover:bg-red-400 px-6 py-2 focus:outline-none mx-1">Delete</button>
-                </form>
-            </div>
+            @if(isset($account))
+                <div class="flex justify-center">
+                    <button @click={showDeleteModal=false}
+                            class="bg-gray-300 text-gray-900 rounded hover:bg-gray-200 px-6 py-2 focus:outline-none mx-1">Cancel</button>
+                    <form action="{{route('accounts.destroy',$account)}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button
+                            class="bg-red-500 text-gray-200 rounded hover:bg-red-400 px-6 py-2 focus:outline-none mx-1">Delete</button>
+                    </form>
+                </div>
+            @endif
         </div>
     </div>
     <div class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black opacity-50"></div>

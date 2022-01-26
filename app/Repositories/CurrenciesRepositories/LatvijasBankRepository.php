@@ -3,11 +3,12 @@
 namespace App\Repositories\CurrenciesRepositories;
 
 use App\Models\Rate;
+use Illuminate\Support\Facades\DB;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
 class LatvijasBankRepository implements CurrenciesRepositoryInterface
 {
-    public function getRates()
+    public function getRates(): void
     {
         $ratesData = $this->loadRatesXml();
 

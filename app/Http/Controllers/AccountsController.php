@@ -54,7 +54,6 @@ class AccountsController extends Controller
         return redirect()->route('accounts.index');
     }
 
-
     public function show(Account $account)
     {
         $transactions = DB::table('transactions')
@@ -91,7 +90,6 @@ class AccountsController extends Controller
             'account' => $account
         ]);
     }
-
 
     public function destroy(Account $account)
     {

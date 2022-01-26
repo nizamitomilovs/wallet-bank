@@ -82,6 +82,10 @@ class TransactionController extends Controller
 
     private function getRateFromDatabase(string $currency): float
     {
+        if ($currency === 'EUR') {
+            return 1.00;
+        }
+
         return DB::table('rates')->where('name', $currency)->value('rate');
     }
 
